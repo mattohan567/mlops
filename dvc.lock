@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   prepare:
-    cmd: python src/create_features.py
+    cmd: python src/create_features_w_params.py
     deps:
     - path: data/adult.data
       hash: md5
@@ -11,10 +11,10 @@ stages:
       hash: md5
       md5: 366c746021dc50ad9d933d2817612fc9
       size: 2003132
-    - path: src/create_features.py
+    - path: src/create_features_w_params.py
       hash: md5
-      md5: b93aea27ba45f8b24bdd52928f1f2b99
-      size: 2564
+      md5: 4c599dcbee8be853eef6b98ec6607292
+      size: 3469
     params:
       params.yaml:
         features.chi2percentile: 50
@@ -33,3 +33,36 @@ stages:
       hash: md5
       md5: adf63b6ce20f7ee74f63d5dabb325226
       size: 10829967
+  prepare_airbnb:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/airbnb.csv
+      hash: md5
+      md5: ab8753edc46512e9b91389d1433d5527
+      size: 842529
+    - path: src/preprocessing.py
+      hash: md5
+      md5: d572aee7064fd7e2663f946b752fee6f
+      size: 1637
+    params:
+      params.yaml:
+        features.input_path: data/airbnb.csv
+        features.random_state: 42
+        features.test_size: 0.2
+    outs:
+    - path: data/processed_test_features.csv
+      hash: md5
+      md5: ac3fc5cd72415fa6227c6990f5811972
+      size: 45962
+    - path: data/processed_test_target.csv
+      hash: md5
+      md5: 3014cbe3d4e32649b60d2dc1a94061d4
+      size: 13827
+    - path: data/processed_train_features.csv
+      hash: md5
+      md5: e5138f122c1ee6b2d01875e77d62e56f
+      size: 183675
+    - path: data/processed_train_target.csv
+      hash: md5
+      md5: c04d2ced45711769d6e4efa1f0fdb340
+      size: 55217
