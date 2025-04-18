@@ -90,3 +90,6 @@ config.local.yaml
 *.local.yaml
 *.local.json
 .env.local
+
+# Lec Notes
+Lec Notes/
