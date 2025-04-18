@@ -1,3 +1,6 @@
+# Metaflow
+.metaflow/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -24,20 +27,35 @@ var/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
-# Environment
-.env
-.venv
+# Virtual environments
 venv/
 ENV/
+.env
+.venv
 
 # MLflow
 mlruns/
 mlflow.db
+mlartifacts/
 
-# DVC
-/data
-/models
-temp_artifacts/
+# Model files
+*.joblib
+*.pkl
+*.model
+*.h5
+models/
+
+# Local environment
+.env
+.DS_Store
+
+# Large data files
+*.csv
+*.parquet
+*.feather
+*.sqlite
+*.db
+*.hdf5
 
 # IDE
 .idea/
@@ -56,4 +74,19 @@ Thumbs.db
 
 # Project specific
 lab5/sa-private-key.json
+**/sa-private-key.json
+**/credentials.json
+**/token.json
+**/secret*
 save_data/
+**/api_key*
+**/*password*
+**/*credential*
+**/*token*
+**/*secret*
+
+# Local configuration
+config.local.yaml
+*.local.yaml
+*.local.json
+.env.local

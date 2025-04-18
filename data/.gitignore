@@ -1,3 +1,14 @@
+# Ignore all files in this directory
+*
+
+# Don't ignore .gitignore and README
+!.gitignore
+!README.md
+
+# Don't ignore subdirectories, but ignore their contents
+!*/
+*/*/
+
 /adult.data
 /adult.test
 /pipeline.pkl
