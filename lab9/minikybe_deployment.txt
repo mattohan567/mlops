@@ -1,0 +1,23 @@
+# 1. Start Minikube
+minikube start
+
+# 2. Point Docker commands at Minikube’s daemon
+eval $(minikube docker-env)
+
+# 3. Build your image
+docker build -t reddit-app:latest .
+
+# 4. Deploy to Kubernetes
+kubectl apply -f reddit_deployment.yaml
+kubectl apply -f reddit_service.yaml
+
+# 5. Check pods
+kubectl get pods
+
+# 6. Get a URL for the service and browse to /docs
+minikube service reddit-service --url
+# → open http://<minikube-ip>/docs
+
+# Take screenshots of:
+#  • `kubectl get pods`
+#  • Your browser showing the Swagger UI at http://…/docs
